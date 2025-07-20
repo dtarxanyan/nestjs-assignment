@@ -1,0 +1,13 @@
+<script type="text/javascript" src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+<script type="text/javascript">
+  const socket = io('http://localhost:3000');
+
+  socket.on('connect', () => {
+    console.log('Connected', socket.id);
+    socket.emit('message', { text: 'Hello from client!' });
+  });
+
+  socket.on('message', (data) => {
+    console.log('Message from server:', data);
+  });
+</script>

@@ -1,0 +1,296 @@
+{
+	"info": {
+		"_postman_id": "63a4b1a0-aae2-487e-bfef-cd62b0da3d69",
+		"name": "Nest Assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37196044"
+	},
+	"item": [
+		{
+			"name": "1. Create A Company",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Fifth LLC\",\n    \"industry\": \"Software Development\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/companies/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"companies",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. Create A User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4N2NkMDhmNGQ4YWQzMzg2OTc2MTVjYyIsIm5hbWUiOiJKb2huIERvZSIsImVtYWlsIjoiam9obkBleGFtcGxlLmNvbSIsImlhdCI6MTc1MzAxMTI3MywiZXhwIjoxNzUzMDQwMDczfQ.IglKGw03iUK3emJ3-9dlYpnX5w1MF-odaJTcG_Cgc4I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"John Doe\",\n    \"companyId\": \"687feb9c62d2c364316fbe9f\",\n    \"email\": \"admin@fifth.com\",\n    \"password\": \"admin123#\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/users/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"admin@fifth.com\",\n    \"password\": \"admin123#\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. Set a Permissions For A Specific Resource Type",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4N2ZlYmE4NjJkMmMzNjQzMTZmYmVhMyIsIm5hbWUiOiJKb2huIERvZSIsImVtYWlsIjoiYWRtaW5AZmlmdGguY29tIiwiaWF0IjoxNzUzMjEzODY4LCJleHAiOjE3NTMyNDI2Njh9.N6UQg1z6oavwv6c8Kxpl_o-SD_yKIupvSdI6JE7mbDg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"companyId\": \"687feb9c62d2c364316fbe9f\",\n    \"userId\": \"687feba862d2c364316fbea3\",\n    \"resourceType\": \"Project\",\n    \"permissions\": [\"Admin\", \"Read\", \"Write\", \"Delete\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/permissions",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"permissions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5. Create A Project",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4N2ZlYmE4NjJkMmMzNjQzMTZmYmVhMyIsIm5hbWUiOiJKb2huIERvZSIsImVtYWlsIjoiYWRtaW5AZmlmdGguY29tIiwiaWF0IjoxNzUzMjEzODY4LCJleHAiOjE3NTMyNDI2Njh9.N6UQg1z6oavwv6c8Kxpl_o-SD_yKIupvSdI6JE7mbDg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"companyId\": \"687feb9c62d2c364316fbe9f\",\n\"name\": \"Project Name 2\",\n\"status\": \"Active\",\n\"priority\": 1,\n\"tags\": [\"Tag1\", \"Tag2\", \"Tag3\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/projects",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6. Update A Project",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4N2ZlYmE4NjJkMmMzNjQzMTZmYmVhMyIsIm5hbWUiOiJKb2huIERvZSIsImVtYWlsIjoiYWRtaW5AZmlmdGguY29tIiwiaWF0IjoxNzUzMjEzODY4LCJleHAiOjE3NTMyNDI2Njh9.N6UQg1z6oavwv6c8Kxpl_o-SD_yKIupvSdI6JE7mbDg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\": \"Project Name 2\",\n\"status\": \"Active\",\n\"priority\": 1,\n\"tags\": [\"Tag1\", \"Tag2\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/projects/687ff4c8ba614bdb8b59b390",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"projects",
+						"687ff4c8ba614bdb8b59b390"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7. Get All Projects That User Has Access to Read",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4N2ZlYmE4NjJkMmMzNjQzMTZmYmVhMyIsIm5hbWUiOiJKb2huIERvZSIsImVtYWlsIjoiYWRtaW5AZmlmdGguY29tIiwiaWF0IjoxNzUzMjEzODY4LCJleHAiOjE3NTMyNDI2Njh9.N6UQg1z6oavwv6c8Kxpl_o-SD_yKIupvSdI6JE7mbDg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\": \"Project Name 2\",\n\"status\": \"Active\",\n\"priority\": 1,\n\"tags\": [\"Tag1\", \"Tag2\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/projects",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8. Get a Project By ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4N2ZlYmE4NjJkMmMzNjQzMTZmYmVhMyIsIm5hbWUiOiJKb2huIERvZSIsImVtYWlsIjoiYWRtaW5AZmlmdGguY29tIiwiaWF0IjoxNzUzMjEzODY4LCJleHAiOjE3NTMyNDI2Njh9.N6UQg1z6oavwv6c8Kxpl_o-SD_yKIupvSdI6JE7mbDg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\": \"Project Name 2\",\n\"status\": \"Active\",\n\"priority\": 1,\n\"tags\": [\"Tag1\", \"Tag2\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/projects",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"projects"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
